@@ -1,0 +1,27 @@
+# tokens/tokens.yaml
+
+spacing:
+  vertical:
+    snudge: 6        # Vertical/SNudge
+  horizontal:
+    snudge: 6        # Horizontal/SNudge
+    m: 12            # Horizontal/M
+
+radius:
+  button_corner: 4   # button-corner-radius
+
+colors:
+  brand:
+    primary_rest: "#5B5FC7"     # hsba(238, 54%, 78%, 1)
+    primary_hover: "#4F54B8"    # slightly darker for hover
+  neutral:
+    foreground_on_brand_rest: "#FFFFFF"
+    background_disabled: "#F3F3F3"
+    foreground_disabled: "#B3B3B3"
+
+typography:
+  label_md:
+    font_family: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    size: 14
+    weight: 500
+    line_height: 20
