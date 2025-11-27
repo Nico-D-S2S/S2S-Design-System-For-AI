@@ -10,6 +10,7 @@ spacing:
 
 radius:
   button_corner: 4   # button-corner-radius
+  input_corner: 4    # same radius for inputs
 
 borders:
   width:
@@ -22,16 +23,18 @@ colors:
 
   neutral:
     # Text
-    text_primary: "#000000"      
+    text_primary: "#000000"
+    text_tertiary: "#6E6E6E"     # Placeholder / less prominent text
 
-    # Button disabled
+    # Disabled
     foreground_disabled: "#B3B3B3"
     background_disabled: "#F3F3F3"
 
-    # Borders
+    # Borders / dividers
     stroke_grey_300: "#D1D1D1"
     stroke_grey_400: "#C8C8C8"
     stroke_disabled: "#D6D6D6"
+    divider_on_white_500: "#E5E5E5"
 
     # Foreground on Brand (Primary)
     foreground_on_brand_rest: "#FFFFFF"
@@ -39,7 +42,14 @@ colors:
   button:
     secondary_rest: "#FFFFFF"    # Secondary button Rest background
     secondary_hover: "#F5F5F5"   # Secondary button Hover background
-    disabled_rest: "#F0F0F0"     # Disabled secondary button
+    disabled_rest: "#F0F0F0"     # Disabled button / input background
+
+  surface:
+    input_background: "#FFFFFF"  # Base white input surface
+
+  status:
+    error_border: "#C0392B"      # Error border
+    error_text: "#C0392B"        # Error text
 
 typography:
   label_md:
@@ -47,3 +57,10 @@ typography:
     size: 14
     weight: 500
     line_height: 20
+
+  input_md:
+    font_family: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    size: 14
+    weight: 400
+    line_height: 20
+
