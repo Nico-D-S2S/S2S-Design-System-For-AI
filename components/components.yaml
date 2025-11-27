@@ -105,3 +105,56 @@ components:
             interactive: false
             pointer_events: none
 
+
+  input:
+    description: "Single-line text input for forms and filters."
+
+    layout:
+      display: flex
+      width: 280          # Fixed width from your Figma spec
+      height: 32
+      flex_direction: column
+      align_items: flex-start
+
+    shape:
+      border_radius: radius.input_corner
+      border_width: borders.width.sm
+
+    colors:
+      rest:
+        background: colors.surface.input_background
+        border: colors.neutral.divider_on_white_500
+        text: colors.neutral.text_tertiary        # placeholder / value in unfocused state
+
+      focus:
+        background: colors.surface.input_background
+        border: colors.neutral.divider_on_white_500
+        underline: colors.brand.primary_rest      # bottom line in focus state
+        text: colors.neutral.text_primary
+
+      error:
+        background: colors.surface.input_background
+        border: colors.status.error_border
+        text: colors.status.error_text
+
+      disabled:
+        background: colors.button.disabled_rest
+        border: colors.neutral.stroke_disabled
+        text: colors.neutral.foreground_disabled
+
+    typography:
+      value: typography.input_md
+      placeholder: typography.input_md
+
+    states:
+      rest:
+        interactive: true
+      focus:
+        interactive: true
+      error:
+        interactive: true
+      disabled:
+        interactive: false
+        pointer_events: none
+
+
