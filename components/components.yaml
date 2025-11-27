@@ -1,12 +1,15 @@
 # components/components.yaml
+# Machine-readable component definitions referencing design tokens
 
 components:
+
   button:
-    description: "Reusable button component for primary actions."
+    description: "Reusable button component for all actions."
 
     variants:
+
       primary:
-        description: "Primary brand button used for main CTAs."
+        description: "Primary button for main CTAs."
 
         layout:
           display: inline-flex
@@ -49,4 +52,56 @@ components:
           disabled:
             interactive: false
             pointer_events: none
-components.yaml
+
+
+      secondary:
+        description: "Secondary button for secondary actions with neutral background and grey border."
+
+        layout:
+          display: inline-flex
+          align_items: center
+          justify_content: center
+          height: 32
+          padding_y: spacing.vertical.snudge
+          padding_x: spacing.horizontal.m
+          gap: spacing.horizontal.snudge
+
+        shape:
+          border_radius: radius.button_corner
+          border_width: borders.width.sm
+
+        colors:
+          rest:
+            background: colors.button.secondary_rest
+            border: colors.neutral.stroke_grey_300
+            text: colors.neutral.text_primary
+
+          hover:
+            background: colors.button.secondary_hover
+            border: colors.neutral.stroke_grey_400
+            text: colors.neutral.text_primary
+
+          disabled:
+            background: colors.button.disabled_rest
+            border: colors.neutral.stroke_disabled
+            text: colors.neutral.foreground_disabled
+
+        typography:
+          label: typography.label_md
+
+        icon:
+          size: 16
+          gap: spacing.horizontal.snudge
+          allowed_positions: [leading, trailing]
+
+        states:
+          rest:
+            interactive: true
+          hover:
+            interactive: true
+          active:
+            interactive: true
+          disabled:
+            interactive: false
+            pointer_events: none
+
