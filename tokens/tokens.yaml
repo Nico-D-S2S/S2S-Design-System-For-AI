@@ -1,4 +1,5 @@
 # tokens/tokens.yaml
+# Atomic values for spacing, radius, borders, colors, typography
 
 spacing:
   vertical:
@@ -10,14 +11,35 @@ spacing:
 radius:
   button_corner: 4   # button-corner-radius
 
+borders:
+  width:
+    sm: 1            # Global.Stroke.Width.05 (1px stroke)
+
 colors:
   brand:
-    primary_rest: "#5B5FC7"     # hsba(238, 54%, 78%, 1)
-    primary_hover: "#4F54B8"    # slightly darker for hover
+    primary_rest: "#5B5FC7"      # Primary button background (Rest)
+    primary_hover: "#4F54B8"     # Primary button hover
+
   neutral:
-    foreground_on_brand_rest: "#FFFFFF"
-    background_disabled: "#F3F3F3"
+    # Text
+    text_primary: "#000000"      
+
+    # Button disabled
     foreground_disabled: "#B3B3B3"
+    background_disabled: "#F3F3F3"
+
+    # Borders
+    stroke_grey_300: "#D1D1D1"
+    stroke_grey_400: "#C8C8C8"
+    stroke_disabled: "#D6D6D6"
+
+    # Foreground on Brand (Primary)
+    foreground_on_brand_rest: "#FFFFFF"
+
+  button:
+    secondary_rest: "#FFFFFF"    # Secondary button Rest background
+    secondary_hover: "#F5F5F5"   # Secondary button Hover background
+    disabled_rest: "#F0F0F0"     # Disabled secondary button
 
 typography:
   label_md:
