@@ -1,0 +1,52 @@
+# components/components.yaml
+
+components:
+  button:
+    description: "Reusable button component for primary actions."
+
+    variants:
+      primary:
+        description: "Primary brand button used for main CTAs."
+
+        layout:
+          display: inline-flex
+          align_items: center
+          justify_content: center
+          height: 32
+          padding_y: spacing.vertical.snudge
+          padding_x: spacing.horizontal.m
+          gap: spacing.horizontal.snudge
+
+        shape:
+          border_radius: radius.button_corner
+
+        colors:
+          rest:
+            background: colors.brand.primary_rest
+            text: colors.neutral.foreground_on_brand_rest
+          hover:
+            background: colors.brand.primary_hover
+            text: colors.neutral.foreground_on_brand_rest
+          disabled:
+            background: colors.neutral.background_disabled
+            text: colors.neutral.foreground_disabled
+
+        typography:
+          label: typography.label_md
+
+        icon:
+          size: 16
+          gap: spacing.horizontal.snudge
+          allowed_positions: [leading, trailing]
+
+        states:
+          rest:
+            interactive: true
+          hover:
+            interactive: true
+          active:
+            interactive: true
+          disabled:
+            interactive: false
+            pointer_events: none
+components.yaml
