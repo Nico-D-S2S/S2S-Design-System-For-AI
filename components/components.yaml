@@ -111,7 +111,7 @@ components:
 
     layout:
       display: flex
-      width: 280          # Fixed width from your Figma spec
+      width: 280                  # Fixed width from your spec
       height: 32
       flex_direction: column
       align_items: flex-start
@@ -124,7 +124,7 @@ components:
       rest:
         background: colors.surface.input_background
         border: colors.neutral.divider_on_white_500
-        text: colors.neutral.text_tertiary        # placeholder / value in unfocused state
+        text: colors.neutral.text_tertiary        # placeholder / unfocused value
 
       focus:
         background: colors.surface.input_background
@@ -156,5 +156,362 @@ components:
       disabled:
         interactive: false
         pointer_events: none
+
+
+  table:
+    description: "Data table components: headers, cells, status/badge/tag cells, and column layout."
+
+    header:
+      description: "Column header cell."
+
+      layout:
+        display: flex
+        width: 144
+        height: 32
+        padding_y: spacing.vertical.md        # 8px
+        padding_x: spacing.horizontal.m       # 12px
+        justify_content: center
+        align_items: center
+
+      shape:
+        border_radius: 0                      # flat by default (adjust if needed)
+
+      colors:
+        background: colors.neutral.grey_50
+        text: colors.neutral.text_tertiary
+
+      typography:
+        label: typography.table_header_sm
+
+
+    cell:
+      description: "Table body cells with different content types, all supporting rest/hover/clicked/disabled."
+
+      # 1) TEXT ONLY
+      text_only:
+        description: "Standard text-only table cell."
+
+        layout:
+          display: inline-flex
+          height: 48
+          padding_y: spacing.vertical.row_md   # 10px
+          padding_x: spacing.horizontal.m      # 12px
+          align_items: center
+          gap: spacing.horizontal.snudge       # 6px
+
+        colors:
+          rest:
+            background: colors.surface.input_background
+            text: colors.neutral.text_secondary
+          hover:
+            background: colors.neutral.grey_50
+            text: colors.neutral.text_secondary
+          clicked:
+            background: colors.neutral.grey_150
+            text: colors.neutral.text_secondary
+          disabled:
+            background: colors.surface.input_background
+            text: colors.neutral.foreground_subtle_disabled
+
+        typography:
+          value: typography.table_cell_md
+
+        states:
+          rest:
+            interactive: true
+          hover:
+            interactive: true
+          clicked:
+            interactive: true
+          disabled:
+            interactive: false
+            pointer_events: none
+
+
+      # 2) ICON
+      icon:
+        description: "Cell with an icon (e.g., checkmark) and optional text."
+
+        layout:
+          display: inline-flex
+          height: 48
+          padding_y: spacing.vertical.row_md
+          padding_x: spacing.horizontal.m
+          align_items: center
+          gap: spacing.horizontal.snudge
+
+        icon:
+          size: 16
+
+        colors:
+          rest:
+            background: colors.surface.input_background
+            icon: colors.neutral.text_secondary
+            text: colors.neutral.text_secondary
+          hover:
+            background: colors.neutral.grey_50
+            icon: colors.neutral.text_secondary
+            text: colors.neutral.text_secondary
+          clicked:
+            background: colors.neutral.grey_150
+            icon: colors.neutral.text_secondary
+            text: colors.neutral.text_secondary
+          disabled:
+            background: colors.surface.input_background
+            icon: colors.neutral.foreground_subtle_disabled
+            text: colors.neutral.foreground_subtle_disabled
+
+        typography:
+          value: typography.table_cell_md
+
+        states:
+          rest:
+            interactive: true
+          hover:
+            interactive: true
+          clicked:
+            interactive: true
+          disabled:
+            interactive: false
+            pointer_events: none
+
+
+      # 3) BADGE (outlined pill)
+      badge:
+        description: "Badge cell with an outlined pill inside."
+
+        container:
+          layout:
+            display: inline-flex
+            height: 48
+            padding_top: spacing.vertical.row_md
+            padding_bottom: spacing.vertical.row_md
+            padding_left: spacing.horizontal.m
+            padding_right: 50
+            align_items: center
+            gap: spacing.horizontal.snudge
+          colors:
+            rest:
+              background: colors.surface.input_background
+            hover:
+              background: colors.neutral.grey_50
+            clicked:
+              background: colors.neutral.grey_150
+            disabled:
+              background: colors.surface.input_background
+
+        pill:
+          layout:
+            display: flex
+            height: 24
+            padding_y: spacing.vertical.sm
+            padding_x: spacing.horizontal.snudge
+            justify_content: center
+            align_items: center
+            gap: spacing.horizontal.m
+          shape:
+            border_radius: radius.pill_md
+            border_width: borders.width.sm
+          colors:
+            background: colors.surface.card_subtle
+            border: colors.neutral.stroke_grey_300
+            text_rest: colors.neutral.text_secondary
+            text_disabled: colors.neutral.foreground_subtle_disabled
+          typography:
+            label: typography.pill_sm
+
+        states:
+          rest:
+            interactive: true
+          hover:
+            interactive: true
+          clicked:
+            interactive: true
+          disabled:
+            interactive: false
+            pointer_events: none
+
+
+      # 4) PREFIX (strong prefix + normal text)
+      prefix:
+        description: "Cell with a bold prefix followed by regular text (e.g., Label – value)."
+
+        layout:
+          display: inline-flex
+          height: 48
+          padding_y: spacing.vertical.row_md
+          padding_x: spacing.horizontal.m
+          align_items: center
+          gap: spacing.horizontal.snudge
+
+        colors:
+          rest:
+            background: colors.surface.input_background
+            prefix_text: colors.neutral.text_secondary
+            text: colors.neutral.text_secondary
+          hover:
+            background: colors.neutral.grey_50
+            prefix_text: colors.neutral.text_secondary
+            text: colors.neutral.text_secondary
+          clicked:
+            background: colors.neutral.grey_150
+            prefix_text: colors.neutral.text_secondary
+            text: colors.neutral.text_secondary
+          disabled:
+            background: colors.surface.input_background
+            prefix_text: colors.neutral.foreground_subtle_disabled
+            text: colors.neutral.foreground_subtle_disabled
+
+        typography:
+          prefix: typography.label_md        # slightly stronger
+          value: typography.table_cell_md
+
+        states:
+          rest:
+            interactive: true
+          hover:
+            interactive: true
+          clicked:
+            interactive: true
+          disabled:
+            interactive: false
+            pointer_events: none
+
+
+      # 5) STATUS (filled pill)
+      status:
+        description: "Status cell with a colored status pill inside."
+
+        container:
+          layout:
+            display: inline-flex
+            height: 48
+            padding_top: spacing.vertical.row_md
+            padding_bottom: spacing.vertical.row_md
+            padding_left: spacing.horizontal.m
+            padding_right: 50
+            align_items: center
+            gap: spacing.horizontal.snudge
+          colors:
+            rest:
+              background: colors.surface.input_background
+            hover:
+              background: colors.neutral.grey_50
+            clicked:
+              background: colors.neutral.grey_150
+            disabled:
+              background: colors.surface.input_background
+
+        pill:
+          layout:
+            display: flex
+            height: 24
+            padding_y: spacing.vertical.sm
+            padding_x: spacing.horizontal.snudge
+            justify_content: center
+            align_items: center
+            gap: spacing.horizontal.sm
+          shape:
+            border_radius: radius.pill_md
+          colors:
+            background: colors.surface.card_subtle
+            text_rest: colors.status.status_blue_text
+            text_disabled: colors.neutral.foreground_subtle_disabled
+          typography:
+            label: typography.pill_sm
+
+        states:
+          rest:
+            interactive: true
+          hover:
+            interactive: true
+          clicked:
+            interactive: true
+          disabled:
+            interactive: false
+            pointer_events: none
+
+
+      # 6) TAG (e.g., “Sharepoint” + counter)
+      tag:
+        description: "Tag cell with a primary tag pill and optional count (e.g., '+2')."
+
+        container:
+          layout:
+            display: inline-flex
+            height: 48
+            padding_top: spacing.vertical.row_md
+            padding_bottom: spacing.vertical.row_md
+            padding_left: spacing.horizontal.m
+            padding_right: 50
+            align_items: center
+            gap: spacing.horizontal.snudge
+          colors:
+            rest:
+              background: colors.surface.input_background
+            hover:
+              background: colors.neutral.grey_50
+            clicked:
+              background: colors.neutral.grey_150
+            disabled:
+              background: colors.surface.input_background
+
+        primary_tag:
+          layout:
+            display: flex
+            height: 24
+            padding_y: spacing.vertical.sm
+            padding_x: spacing.horizontal.snudge
+            justify_content: center
+            align_items: center
+          shape:
+            border_radius: radius.pill_md
+          colors:
+            background: colors.surface.card_subtle
+            text_rest: colors.status.status_blue_text
+            text_disabled: colors.neutral.foreground_subtle_disabled
+          typography:
+            label: typography.pill_sm
+
+        counter_tag:
+          layout:
+            display: flex
+            height: 24
+            padding_y: spacing.vertical.sm
+            padding_x: spacing.horizontal.snudge
+            justify_content: center
+            align_items: center
+          shape:
+            border_radius: radius.pill_md
+            border_width: borders.width.sm
+          colors:
+            background: colors.surface.card_subtle
+            border: colors.neutral.stroke_grey_300
+            text_rest: colors.neutral.text_secondary
+            text_disabled: colors.neutral.foreground_subtle_disabled
+          typography:
+            label: typography.pill_sm
+
+        states:
+          rest:
+            interactive: true
+          hover:
+            interactive: true
+          clicked:
+            interactive: true
+          disabled:
+            interactive: false
+            pointer_events: none
+
+
+    column:
+      description: "Vertical stack of header + cells."
+
+      layout:
+        display: flex
+        flex_direction: column
+        align_items: flex-start
+        gap: 0                      # rows control their own height
+
 
 
