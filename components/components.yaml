@@ -513,5 +513,187 @@ components:
         align_items: flex-start
         gap: 0                      # rows control their own height
 
+components:
+
+  # ...existing components
+
+  side_menu:
+    description: "Left-hand configuration side menu with sections, section titles and menu items."
+
+    container:
+      description: "Outer side-menu container."
+      layout:
+        display: inline-flex
+        flex_direction: column
+        align_items: flex-start
+      shape:
+        border_radius: radius.side_menu_corner
+      colors:
+        background: colors.navigation.side_menu_background
+      shadows:
+        # Matches Figma: 2 drop shadows
+        - offset_x: 0
+          offset_y: 6.4
+          blur_radius: 14.4
+          spread: 0
+          color: "rgba(0, 0, 0, 0.07)"
+        - offset_x: 0
+          offset_y: 1.2
+          blur_radius: 3.6
+          spread: 0
+          color: "rgba(0, 0, 0, 0.03)"
+
+    section:
+      description: "Individual section in the side-menu, including section title and menu items."
+      layout:
+        display: flex
+        flex_direction: column
+        align_items: flex-start
+        gap: 9          # 9px between title and items
+        align_self: stretch
+
+    section_title:
+      description: "Section title row with number badge and label (e.g., '1 Settings')."
+      layout:
+        display: flex
+        height: 32
+        padding_top: 1
+        padding_bottom: 1
+        padding_left: 17
+        padding_right: 6
+        align_items: center
+        gap: 11
+        align_self: stretch
+
+      number_badge:
+        description: "Circular number indicator."
+        layout:
+          display: flex
+          width: 26
+          height: 29
+          flex_direction: column
+          justify_content: center
+          align_items: center
+        shape:
+          border_radius: radius.section_number_circle
+        colors:
+          background: colors.navigation.section_number_background
+          text: colors.neutral.foreground_on_brand_rest
+        typography:
+          label: typography.navigation_section_md
+
+      label:
+        description: "Section title text (e.g., 'Settings')."
+        layout:
+          display: flex
+          width: 167
+          height: 26
+          flex_direction: column
+          justify_content: center
+        colors:
+          text: colors.navigation.section_title_text
+        typography:
+          label: typography.navigation_section_md
+
+    item:
+      description: "Side-menu item with optional leading icon and premium badge."
+
+      layout:
+        display: inline-flex
+        height: 32
+        flex_direction: column
+        justify_content: center
+        align_items: flex-start
+        gap: 10
+
+      content:
+        layout:
+          display: inline-flex
+          align_items: center
+          gap: 8        # space between icon, label, premium icon
+        icon:
+          size: 20      # from Figma asset (Size=20, Theme=Regular)
+        premium_icon:
+          size: 14      # from Figma asset (Premium 14x14)
+        typography:
+          label: typography.navigation_item_md
+
+      colors:
+        default:
+          text: colors.navigation.menu_item_text_default
+        hover:
+          text: colors.navigation.menu_item_text_disabled   # TODO: confirm if hover should use disabled color
+          background: colors.navigation.menu_item_background_hover
+        disabled:
+          text: colors.navigation.menu_item_text_disabled
+
+      states:
+        default:
+          interactive: true
+        hover:
+          interactive: true
+        disabled:
+          interactive: false
+          pointer_events: none
+
+  mode_switcher:
+    description: "Two-option segmented control for Simple / Expert mode."
+
+    container:
+      description: "Outer segment control track."
+      layout:
+        width: 280          # fixed width from Figma
+        height: 30
+        padding_top: 8
+        padding_bottom: 8
+        padding_left: 8
+        padding_right: 8
+        display: flex
+        align_items: center
+      shape:
+        border_radius: radius.segment_item
+      colors:
+        background: colors.navigation.segment_unselected_background
+        border: colors.neutral.divider_on_white_500
+
+    option:
+      description: "Base option style (both Simple and Expert reuse this)."
+      layout:
+        display: flex
+        width: 140          # half of 280px
+        height: 32
+        padding_top: 8
+        padding_bottom: 8
+        padding_left: 25
+        padding_right: 25
+        flex_direction: column
+        justify_content: center
+        align_items: center
+        gap: 10
+      typography:
+        label: typography.segment_label_sm
+
+      variants:
+        selected:
+          description: "Selected option (e.g., Simple mode)."
+          shape:
+            border_radius: radius.segment_item
+            border_width: borders.width.sm
+          colors:
+            background: colors.navigation.segment_selected_background
+            border: colors.navigation.segment_selected_border
+            text: colors.brand.primary_rest
+
+        not_selected:
+          description: "Unselected option (e.g., Expert mode)."
+          shape:
+            # Note: asymmetric radius is applied in code based on position (left/right)
+            border_radius_left: 0
+            border_radius_right: radius.side_menu_corner
+          colors:
+            background: colors.navigation.segment_unselected_background
+            text: colors.navigation.segment_unselected_text
+
+
 
 
