@@ -3,18 +3,23 @@
 
 spacing:
   vertical:
-    snudge: 6        # Vertical/SNudge
+    snudge: 6        # 6px – used for buttons
+    sm: 4            # 4px
+    md: 8            # 8px – table header padding
+    row_md: 10       # 10px – table cell vertical padding
   horizontal:
-    snudge: 6        # Horizontal/SNudge
-    m: 12            # Horizontal/M
+    snudge: 6        # 6px
+    m: 12            # 12px – common horizontal padding
+    lg: 20           # 20px – column / large paddings
 
 radius:
   button_corner: 4   # button-corner-radius
-  input_corner: 4    # same radius for inputs
+  input_corner: 4    # inputs
+  pill_md: 6         # badges / status pills
 
 borders:
   width:
-    sm: 1            # Global.Stroke.Width.05 (1px stroke)
+    sm: 1            # 1px stroke
 
 colors:
   brand:
@@ -24,20 +29,26 @@ colors:
   neutral:
     # Text
     text_primary: "#000000"
-    text_tertiary: "#6E6E6E"     # Placeholder / less prominent text
+    text_secondary: "#484644"    # Table cell text
+    text_tertiary: "#616161"     # Header / placeholder
 
-    # Disabled
+    # Disabled text / backgrounds
     foreground_disabled: "#B3B3B3"
     background_disabled: "#F3F3F3"
 
-    # Borders / dividers
+    # Borders / dividers / greys
     stroke_grey_300: "#D1D1D1"
     stroke_grey_400: "#C8C8C8"
     stroke_disabled: "#D6D6D6"
     divider_on_white_500: "#E5E5E5"
+    grey_50: "#F5F5F5"           # Hover bg / header bg
+    grey_150: "#E1E1E1"          # Clicked bg
 
     # Foreground on Brand (Primary)
     foreground_on_brand_rest: "#FFFFFF"
+
+    # Subtle disabled for table cells
+    foreground_subtle_disabled: "#C8C6C4"
 
   button:
     secondary_rest: "#FFFFFF"    # Secondary button Rest background
@@ -46,10 +57,12 @@ colors:
 
   surface:
     input_background: "#FFFFFF"  # Base white input surface
+    card_subtle: "#FAFAFC"       # Light card bg (badges etc)
 
   status:
     error_border: "#C0392B"      # Error border
     error_text: "#C0392B"        # Error text
+    status_blue_text: "#444791"  # Status pill text (SharePoint-like)
 
 typography:
   label_md:
@@ -63,4 +76,22 @@ typography:
     size: 14
     weight: 400
     line_height: 20
+
+  table_header_sm:
+    font_family: "Segoe UI, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    size: 12
+    weight: 400
+    line_height: 16
+
+  table_cell_md:
+    font_family: "Segoe UI, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    size: 14
+    weight: 400
+    line_height: 20
+
+  pill_sm:
+    font_family: "Segoe UI, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    size: 12
+    weight: 400
+    line_height: 16
 
