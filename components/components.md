@@ -418,4 +418,268 @@ Defines how header + cells stack vertically.
 - Use one column per data property.
 - Keep each column width consistent (144px as a default; adjust per table if needed).
 
+---
+
+# Side Menu
+
+The side menu provides navigation for configuration sections such as
+Settings, Information, Governance, and Maintenance. It follows the same
+typography and color system as the rest of the design system and
+reuses new navigation tokens from `tokens.yaml`.
+
+The side menu is composed of:
+
+- Side-menu container
+- Sections (group)
+- Section title (number badge + label)
+- Menu items (with optional icons and premium icon)
+- Mode switcher (Simple / Expert) – separate component but visually
+  aligned with the side menu
+
+---
+
+## Side Menu Container
+
+### Purpose
+Holds all sections and navigation items.
+
+### Visual
+
+- Component: `side_menu.container`
+- Layout:
+  - `display: inline-flex`
+  - `flex-direction: column`
+  - `align-items: flex-start`
+- Shape:
+  - Border radius: `radius.side_menu_corner` (rounded side-panel corners)
+- Background:
+  - `colors.navigation.side_menu_background` (white)
+- Shadows:
+  - Two drop shadows from Figma:
+    - Shadow 1: `0px 6.4px 14.4px 0px rgba(0, 0, 0, 0.07)`
+    - Shadow 2: `0px 1.2px 3.6px 0px rgba(0, 0, 0, 0.03)`
+
+### Usage
+Use this container for the left-hand configuration navigation only.  
+Do not reuse as a generic card; use card components for that.
+
+---
+
+## Section
+
+### Purpose
+Groups a section title and its related menu items (e.g., “1 Settings”).
+
+### Visual
+
+- Component: `side_menu.section`
+- Layout:
+  - `display: flex`
+  - `flex-direction: column`
+  - `align-items: flex-start`
+  - Vertical gap between title and items: **9px**
+  - `align-self: stretch` (fills container width)
+
+### Usage
+Each major navigation group (Settings, Information, Governance,
+Maintenance) should be its own section.
+
+---
+
+## Section Title
+
+A section title contains a circular number badge and a text label,
+e.g., “1 Settings”.
+
+### Number Badge
+
+- Component: `side_menu.section_title.number_badge`
+- Layout:
+  - `display: flex`
+  - Width: **26px**
+  - Height: **29px**
+  - `flex-direction: column`
+  - `justify-content: center`
+  - `align-items: center`
+- Shape:
+  - Border radius: `radius.section_number_circle` (full circle)
+- Colors:
+  - Background: `colors.navigation.section_number_background`
+    (reuses the primary brand color)
+  - Text: `colors.neutral.foreground_on_brand_rest` (white)
+- Typography:
+  - `typography.navigation_section_md` (14 / 700 / 20)
+
+### Label
+
+- Component: `side_menu.section_title.label`
+- Layout:
+  - `display: flex`
+  - Width: **167px**
+  - Height: **26px**
+  - `flex-direction: column`
+  - `justify-content: center`
+- Colors:
+  - Text: `colors.navigation.section_title_text` (#242424)
+- Typography:
+  - `typography.navigation_section_md` (14 / 700 / 20)
+
+### Row Layout
+
+- Entire title row: `side_menu.section_title`
+- Row layout:
+  - `display: flex`
+  - Height: **32px**
+  - Padding: `1px 6px 1px 17px`
+  - `align-items: center`
+  - Gap between badge and label: **11px**
+  - `align-self: stretch`
+
+---
+
+## Menu Item
+
+A menu item contains an optional leading icon, text label, and optional
+premium icon (diamond).
+
+### Default State
+
+- Component: `side_menu.item`
+- Layout:
+  - `display: inline-flex`
+  - Height: **32px**
+  - `flex-direction: column`
+  - `justify-content: center`
+  - `align-items: flex-start`
+  - Vertical gap inside content: **10px**
+- Inner content:
+  - Horizontal layout for icon + label + premium icon
+  - Gap: **8px**
+- Icons:
+  - Main icon: **20px** (e.g., gear)
+  - Premium icon: **14px** (diamond)
+- Typography:
+  - Label: `typography.navigation_item_md` (14 / 400 / 20)
+- Colors:
+  - Text: `colors.navigation.menu_item_text_default` (#484644)
+
+### Hover State
+
+- Background: `colors.navigation.menu_item_background_hover`
+  (same as `colors.neutral.grey_50`)
+- Text: `colors.navigation.menu_item_text_disabled` (#D6D6D6)  
+  *(matches your Figma where hover uses the lighter grey text; if
+  you prefer darker hover text, update this mapping later).*
+
+### Disabled State
+
+- Text: `colors.navigation.menu_item_text_disabled` (#D6D6D6)
+- No hover/active behavior.
+
+### Usage
+
+- Use menu items to navigate to sub-pages within a section
+  (e.g., Welcome, Setup, Notifications).
+- Keep labels concise (1–2 words where possible).
+- Use the premium icon only for items that require a higher plan.
+
+---
+
+# Mode Switcher (Simple / Expert)
+
+The mode switcher is a two-option segmented control placed above the
+side menu. It allows users to toggle between **Simple mode** and
+**Expert mode**.
+
+It reuses navigation tokens and does **not** introduce new colors.
+
+---
+
+## Switcher Container
+
+### Purpose
+Provides the track around the segments.
+
+### Visual
+
+- Component: `mode_switcher.container`
+- Layout:
+  - Width: **280px**
+  - Height: **30px**
+  - Padding: **8px** on all sides (`8px 8px 8px 8px`)
+  - `display: flex`
+  - `align-items: center`
+- Shape:
+  - Border radius: `radius.segment_item`
+- Colors:
+  - Background: `colors.navigation.segment_unselected_background`
+    (light grey, same as `colors.neutral.grey_50`)
+  - Border: `colors.neutral.divider_on_white_500`
+
+Place the container above the section list with a comfortable vertical
+gap (e.g., using your standard vertical spacing token).
+
+---
+
+## Segment Option
+
+Each option (Simple mode, Expert mode) shares the same base geometry
+and typography.
+
+### Shared Visual
+
+- Component: `mode_switcher.option`
+- Layout:
+  - `display: flex`
+  - Width: **140px** (half of the 280px container)
+  - Height: **32px**
+  - Padding: `8px 25px`
+  - `flex-direction: column`
+  - `justify-content: center`
+  - `align-items: center`
+  - Gap: **10px**
+- Typography:
+  - Label: `typography.segment_label_sm`
+    - 12px / 600 / 16px line height
+- Radius:
+  - Selected uses `radius.segment_item` for a pill shape.
+  - Unselected uses asymmetrical radius (0 on the shared edge, rounded
+    on the outer edge).
+
+---
+
+### Selected State (e.g., Simple mode)
+
+- Background:
+  - `colors.navigation.segment_selected_background` (#E8EBFA)
+- Border:
+  - `borders.width.sm` in `colors.navigation.segment_selected_border`
+    (#9299F7)
+- Text:
+  - `colors.brand.primary_rest` (#5B5FC7)
+
+This creates the blue pill effect seen in Figma.
+
+---
+
+### Not-Selected State (e.g., Expert mode)
+
+- Background:
+  - `colors.navigation.segment_unselected_background` (#F5F5F5)
+- Text:
+  - `colors.navigation.segment_unselected_text` (#616161)
+- Radius:
+  - The option on the right has `border-radius: 0 12px 12px 0`  
+    (outer corners rounded, inner corners square).  
+  - The option on the left mirror this if it becomes unselected.
+
+### Usage
+
+- Use this control only for **mutually exclusive view modes** where
+  both options are visible and obvious.
+- Do not add more than two segments; if more views are required, use
+  tabs or a different navigation pattern.
+
+---
+
 
