@@ -95,3 +95,48 @@ typography:
     weight: 400
     line_height: 16
 
+radius:
+  # ...keep existing radius values
+  side_menu_corner: 12          # used for side-menu container corners
+  segment_item: 8               # selected segment pill radius
+  section_number_circle: 999    # fully round number badge
+
+colors:
+  # ...keep existing colors
+
+  navigation:
+    # Side-menu / navigation-specific colors
+    menu_item_text_default: "#484644"        # matches Light Theme/Text/Secondary
+    menu_item_text_disabled: "#D6D6D6"      # matches disabled/grey text
+    menu_item_background_hover: "#F5F5F5"   # matches neutral.grey_50
+    side_menu_background: "#FFFFFF"         # menu surface
+    segment_selected_background: "#E8EBFA"  # Simple mode selected bg
+    segment_selected_border: "#9299F7"      # Simple mode selected border
+    segment_unselected_background: "#F5F5F5" # Expert mode bg (same as grey_50)
+    segment_unselected_text: "#616161"      # Light Theme/Text/Tertiary
+    section_number_background: "#5B5FC7"    # reuse brand primary
+    section_title_text: "#242424"           # primary nav section text
+
+typography:
+  # ...keep existing typography
+
+  navigation_item_md:
+    font_family: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    size: 14
+    weight: 400
+    line_height: 20
+
+  navigation_section_md:
+    font_family: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    size: 14
+    weight: 700
+    line_height: 20
+
+  segment_label_sm:
+    font_family: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    size: 12
+    weight: 600
+    line_height: 16
+
+    
+
